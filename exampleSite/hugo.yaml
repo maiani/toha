@@ -324,6 +324,12 @@ params:
     noindex:
       # search: false
 
+    # Emit schema.org JSON-LD structured data: WebSite and Person on the home
+    # page, one ScholarlyArticle per publication, and BlogPosting on blog
+    # posts. Default is "true".
+    structuredData:
+      # enable: false
+
     # Number of posts to show to each page. Default is "12"
     pagination:
       maxPostsPerPage: 12
