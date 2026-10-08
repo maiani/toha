@@ -76,7 +76,15 @@
         <div class="row ps-3 pe-3">
           <!--Social Media Share Buttons-->
           <div class="col-md-6 share-buttons">
-            {{ if site.Params.features.blog.shareButtons }}
+            {{- /* Show the row only if at least one supported button is enabled. */}}
+            {{- $shareButtons := site.Params.features.blog.shareButtons }}
+            {{- $anyShareButton := false }}
+            {{- if reflect.IsMap $shareButtons }}
+            {{- range slice "facebook" "twitter" "reddit" "tumblr" "pocket" "linkedin" "diaspora" "mastodon" "whatsapp" "email" }}
+            {{- if index $shareButtons . }}{{ $anyShareButton = true }}{{ end }}
+            {{- end }}
+            {{- end }}
+            {{ if $anyShareButton }}
             <strong>{{ i18n "share_on" }}:</strong>
             {{ if site.Params.features.blog.shareButtons.facebook }}
             <a class="btn icon-button bg-facebook" href="https://www.facebook.com/sharer.php?u={{ .Permalink }}"
