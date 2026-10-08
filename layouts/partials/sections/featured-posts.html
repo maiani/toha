@@ -3,7 +3,7 @@
   {{ $sectionID = .section.id }}
 {{ end }}
 
-<div class="container-fluid anchor pb-5 recent-posts-section">
+<div class="container-fluid anchor pb-5 recent-posts-section" id="{{ $sectionID }}">
   {{ if not (.section.hideTitle) }}
     <h1 class="text-center">
         {{ .section.name }}</h1>
