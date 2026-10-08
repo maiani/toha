@@ -18,9 +18,9 @@
           {{ $blogSection := site.Params.features.blog.section | default "posts" }}
           {{ $sectionTitle := i18n $blogSection | default ($blogSection | title) }}
           <li id="list-heading"><a href="{{ print "/" $blogSection "/" | relLangURL }}" data-filter="all">{{ $sectionTitle }}</a></li>
-          <div class="subtree">
+          <li class="subtree-holder"><ul class="subtree">
             {{ partial "navigators/sidebar.html" (dict "menuName" "sidebar" "menuItems" site.Menus.sidebar "ctx" .) }}
-          </div>
+          </ul></li>
         </ul>
       </div>
     </div>
@@ -193,10 +193,10 @@
     </div>
   </div>
   <!--scroll back to top-->
-  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-    title="Scroll to top">
+  <button id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left"
+    title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-circle-up"></i>
-  </a>
+  </button>
 </section>
 {{ end }}
 
