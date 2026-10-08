@@ -132,7 +132,7 @@
         {{- end }}
         {{ $shouldAddSeparator:= partial "helpers/add-navbar-separator.html" . }}
         {{ if $shouldAddSeparator }}
-          <div id="top-navbar-divider"></div>
+          <li id="top-navbar-divider" role="separator"></li>
         {{ end }}
         {{ if $blogEnabled }}
           <li class="nav-item">
