@@ -31,6 +31,12 @@
 {{ define "content" }}
 <section class="content-section" id="content-section">
   <div class="content container-fluid" id="content">
+    {{ if and .IsSection .Params.showSectionIntro }}
+      <header class="container-fluid mb-4">
+        <h1>{{ .Title }}</h1>
+        {{ .Content }}
+      </header>
+    {{ end }}
     <div class="container-fluid post-card-holder" id="post-card-holder">
       {{ $posts := where .RegularPagesRecursive "Layout" "!=" "search" }}
       {{ $posts = where $posts "Params.hidden" "!=" true }}
